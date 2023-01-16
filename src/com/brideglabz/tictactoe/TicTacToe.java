@@ -11,6 +11,7 @@ public class TicTacToe {
         TicTacToe gameObj = new TicTacToe();
         gameObj.initialiseGame();
         gameObj.choosePlayerLetter();
+        gameObj.showBoard();
     }
     void initialiseGame(){
         gameBoard = new char[10];
@@ -35,14 +36,21 @@ public class TicTacToe {
         else
             System.out.println("\nInvalid Input.\nPlease try again!");
     }
+    void showBoard() {
+        System.out.println("\nCurrent Board : ");
+        System.out.println("-------------");
+        System.out.println("| "+gameBoard[1]+" | "+gameBoard[2]+" | "+gameBoard[3]+" |");
+        System.out.println("-------------");
+        System.out.println("| "+gameBoard[4]+" | "+gameBoard[5]+" | "+gameBoard[6]+" |");
+        System.out.println("-------------");
+        System.out.println("| "+gameBoard[7]+" | "+gameBoard[8]+" | "+gameBoard[9]+" |");
+        System.out.println("-------------");
+    }
 
 }
-/*Ability to allow the
-player to choose a
-letter X or O
-
-- Create a method to allow player to
-input X or O and call from main
-- Determine Player and Computer
-
- Letter to play the game*/
+/* As a Player would like to
+see the board, so I can
+choose the valid cells to
+make my move during
+my turn - Write a method showBoard to
+display the current Board*/
