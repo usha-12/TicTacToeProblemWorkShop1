@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf19bd93-bc18-4ff5-8b1f-19fa0ba274dd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/brideglabz/tictactoe/TicTacToe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/brideglabz/tictactoe/TicTacToe.java" afterDir="false" />
-    </list>
+    <list default="true" id="cf19bd93-bc18-4ff5-8b1f-19fa0ba274dd" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

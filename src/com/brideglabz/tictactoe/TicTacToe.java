@@ -5,6 +5,7 @@ public class TicTacToe {
     char playerLetter = '\0';
     char computerLetter = '\0';
     String winner = null;
+    int turn = 0;
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
         System.out.println("Welcome to the Tic Tac Toe Game Program in Java!");
@@ -18,6 +19,8 @@ public class TicTacToe {
         gameObj.showBoard();
         gameObj.playerPlays();
         gameObj.showBoard();
+        gameObj.checkWinOrTie();
+        gameObj.computerPlays();
     }
     void initialiseGame(){
         gameBoard = new char[10];
@@ -132,11 +135,85 @@ public class TicTacToe {
         else
             System.out.println("\n\n"+winner+" wins!");
     }
+    void computerPlays() {
+        if (turn <= 2)
+            generateRandomMove();
+        else
+            generateSpecificMove();
+        turn++;
+    }
+
+    void generateRandomMove() {
+        int position = (int)(Math.random()*9)+1;
+        if (gameBoard[position] == ' ')
+            gameBoard[position] = computerLetter;
+        else
+            generateRandomMove();
+    }
+
+    void generateSpecificMove() {
+        if(gameBoard[1] == computerLetter && gameBoard[2] == computerLetter)
+            gameBoard[3] = computerLetter;
+        else if(gameBoard[2] == computerLetter && gameBoard[3] == computerLetter)
+            gameBoard[1] = computerLetter;
+        else if(gameBoard[1] == computerLetter && gameBoard[3] == computerLetter)
+            gameBoard[2] = computerLetter;
+
+        else if(gameBoard[4] == computerLetter && gameBoard[5] == computerLetter)
+            gameBoard[6] = computerLetter;
+        else if(gameBoard[5] == computerLetter && gameBoard[6] == computerLetter)
+            gameBoard[4] = computerLetter;
+        else if(gameBoard[4] == computerLetter && gameBoard[6] == computerLetter)
+            gameBoard[5] = computerLetter;
+
+        else if(gameBoard[7] == computerLetter && gameBoard[8] == computerLetter)
+            gameBoard[9] = computerLetter;
+        else if(gameBoard[8] == computerLetter && gameBoard[9] == computerLetter)
+            gameBoard[7] = computerLetter;
+        else if(gameBoard[7] == computerLetter && gameBoard[9] == computerLetter)
+            gameBoard[8] = computerLetter;
+
+        else if(gameBoard[1] == computerLetter && gameBoard[4] == computerLetter)
+            gameBoard[7] = computerLetter;
+        else if(gameBoard[4] == computerLetter && gameBoard[7] == computerLetter)
+            gameBoard[1] = computerLetter;
+        else if(gameBoard[1] == computerLetter && gameBoard[7] == computerLetter)
+            gameBoard[4] = computerLetter;
+
+        else if(gameBoard[2] == computerLetter && gameBoard[5] == computerLetter)
+            gameBoard[8] = computerLetter;
+        else if(gameBoard[5] == computerLetter && gameBoard[8] == computerLetter)
+            gameBoard[2] = computerLetter;
+        else if(gameBoard[2] == computerLetter && gameBoard[8] == computerLetter)
+            gameBoard[5] = computerLetter;
+
+        else if(gameBoard[3] == computerLetter && gameBoard[6] == computerLetter)
+            gameBoard[9] = computerLetter;
+        else if(gameBoard[6] == computerLetter && gameBoard[9] == computerLetter)
+            gameBoard[3] = computerLetter;
+        else if(gameBoard[3] == computerLetter && gameBoard[9] == computerLetter)
+            gameBoard[6] = computerLetter;
+
+        else if(gameBoard[1] == computerLetter && gameBoard[5] == computerLetter)
+            gameBoard[9] = computerLetter;
+        else if(gameBoard[5] == computerLetter && gameBoard[9] == computerLetter)
+            gameBoard[1] = computerLetter;
+        else if(gameBoard[1] == computerLetter && gameBoard[9] == computerLetter)
+            gameBoard[5] = computerLetter;
+
+        else if(gameBoard[3] == computerLetter && gameBoard[5] == computerLetter)
+            gameBoard[7] = computerLetter;
+        else if(gameBoard[5] == computerLetter && gameBoard[7] == computerLetter)
+            gameBoard[3] = computerLetter;
+        else if(gameBoard[3] == computerLetter && gameBoard[7] == computerLetter)
+            gameBoard[5] = computerLetter;
+    }
 
 
 }
-/*As player would expect
-the Tic Tac Toe App to
-determine after every
-move the winner or
-the tie or change the turn*/
+/*On Computer getting
+its turn would like the
+computer to play like
+me
+- First thing I do is check if I can win
+ then play that move*/
