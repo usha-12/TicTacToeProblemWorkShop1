@@ -1,7 +1,5 @@
 package com.brideglabz.tictactoe;
-
 import java.util.Scanner;
-
 public class TicTacToe {
     char gameBoard[] = null;
     char playerLetter = '\0';
@@ -11,6 +9,10 @@ public class TicTacToe {
         System.out.println("Welcome to the Tic Tac Toe Game Program in Java!");
         TicTacToe gameObj = new TicTacToe();
         gameObj.initialiseGame();
+        if (gameObj.toss() == 1)
+            System.out.println("\nPlayer won the toss.\nPlayer plays first.");
+        else
+            System.out.println("\nComputer won the toss.\nComputer plays first.");
         gameObj.choosePlayerLetter();
         gameObj.showBoard();
         gameObj.playerPlays();
@@ -62,12 +64,15 @@ public class TicTacToe {
         else
             gameBoard[playerCell] = playerLetter;
     }
+    int toss() {
+        return (Math.random() > 0.5 ? 1 : 0);
+    }
 
 
 }
-/*Ability to check for the
-free space before
-making the desired
-move - Extend UC 5 to Check if the free space
-is available for the move
-- In case available make the move 5*/
+/*As a User would like to
+to do a toss to check
+who plays first.
+- Use Random to determine Heads or
+Tails and assign accordingly who
+ starts first, the computer or the user*/
