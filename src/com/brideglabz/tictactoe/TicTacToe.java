@@ -6,6 +6,7 @@ public class TicTacToe {
     char computerLetter = '\0';
     String winner = null;
     int turn = 0;
+    int firstPlayer = 0;
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
         System.out.println("Welcome to the Tic Tac Toe Game Program in Java!");
@@ -324,10 +325,50 @@ public class TicTacToe {
         else if(gameBoard[3] == playerLetter && gameBoard[9] == playerLetter && gameBoard[6] == ' ')
             gameBoard[6] = computerLetter;
     }
+    void playersTurn() {
+        playerPlays();
+        showBoard();
+        checkWinOrTie();
+    }
+
+    void computersTurn(){
+        computerPlays();
+        showBoard();
+        checkWinOrTie();
+    }
+
+    void startGame() {
+        firstPlayer = toss();
+        initialiseGame();
+        choosePlayerLetter();
+        if (firstPlayer == 1)
+            System.out.println("\nPlayer won the toss.\nPlayer plays first.");
+        else
+            System.out.println("\nComputer won the toss.\nComputer plays first.");
+        showBoard();
+    }
+
+    void continueTillGameOver() {
+        while(winner == null) {
+            if(firstPlayer == 1) {
+                playersTurn();
+                if(winner != null)
+                    break;
+                else
+                    computersTurn();
+            }
+            else
+            {
+                computersTurn();
+                if(winner != null)
+                    break;
+                else
+                    playersTurn();
+            }
+            turn++;
+        }
+    }
 }
-/*My Subsequent Choices
-will be
-- If the corners are not available
-then take the Centre
-- Lastly any of the available
-sides*/
+/*As a Player would play
+till the game is over with i.e. Till the board is full or
+- If one of the players win*/
