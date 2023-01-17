@@ -14,6 +14,7 @@ public class TicTacToe {
         gameObj.choosePlayerLetter();
         gameObj.showBoard();
         gameObj.playerPlays();
+        gameObj.showBoard();
     }
     void initialiseGame(){
         gameBoard = new char[10];
@@ -52,7 +53,7 @@ public class TicTacToe {
         byte playerCell = sc.nextByte();
         if (playerCell > 9 || playerCell < 1) {
             System.out.println("\nInvalid selection.\nPlease try again!");
-            //playerPlays();
+            playerPlays();
         }
         else if (gameBoard[playerCell] != ' ') {
             System.out.println("\nThe cell you selected is not empty.\nPlease try again!");
@@ -64,8 +65,9 @@ public class TicTacToe {
 
 
 }
-/*Ability for user to make
-a move to a desired
-location in the board
-- Select the index from 1 to 9 to make
-the move.*/
+/*Ability to check for the
+free space before
+making the desired
+move - Extend UC 5 to Check if the free space
+is available for the move
+- In case available make the move 5*/
