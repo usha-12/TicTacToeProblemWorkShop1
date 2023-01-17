@@ -7,6 +7,7 @@ public class TicTacToe {
     String winner = null;
     int turn = 0;
     int firstPlayer = 0;
+    boolean nextGame = true;
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
         System.out.println("Welcome to the Tic Tac Toe Game Program in Java!");
@@ -368,7 +369,30 @@ public class TicTacToe {
             turn++;
         }
     }
+    void playGame() {
+        startGame();
+        continueTillGameOver();
+    }
+
+    void playAnotherGame() {
+        System.out.println("\n\n\nDo you want to play another game?");
+        System.out.println("Enter 'Yes' to continue.");
+        System.out.println("Enter 'No' to exit.");
+        char playerInput = sc.next().charAt(0);
+        if (playerInput == 'Y' || playerInput == 'y') {
+            nextGame = true;
+        }
+        else if (playerInput == 'N' || playerInput == 'n') {
+            nextGame = false;
+            System.out.println("\n\nThank you for playing!");
+        }
+        else {
+            System.out.println("\nInvalid Input.\nPlease try again!");
+            playAnotherGame();
+        }
+    }
 }
-/*As a Player would play
-till the game is over with i.e. Till the board is full or
-- If one of the players win*/
+/*Ability for the user to
+continue playing
+another Tic Tac Toe
+Game Ask user for another game*/
